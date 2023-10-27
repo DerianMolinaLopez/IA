@@ -3,6 +3,7 @@ from AradBucarestGrafica import MapaCiudades
 from diccionarioGrafico import puntos, lines
 import tkinter as tk
 from tkinter import ttk
+import copy
 
 # Definicion de la clase Nodo
 nodo = Nodo.Nodo
@@ -134,25 +135,29 @@ def algoritmoAestrella(frontera):
         return
     else:
         valor = frontera.pop(0)
+        print(listAux)
         print(valor[1].getNombre())
         if valor[1].getNombre() in listaYaVisitados:  # el proble es en como estas haciendo el pop, el orden
             listAux.append(valor[1].getNombre())
             valor = frontera.pop(0)
 
-            listAux.append(valor[1].getNombre())
-            print(listAux)
 
-        print(valor)
-        print(valor[1].getNombre())
+       # print(valor)
+       # print(valor[1].getNombre())
         listAux.append(valor[1].getNombre())
         estadoActual = valor[1]  # Como regresa una tupla, se obtiene el segundo elemento de la tupla que es el nodo
         listaYaVisitados.append(estadoActual.getNombre())
 
         if estadoActual == bucarest:  # goalTest
+            
             print("Solucion encontrada")
+            if listaYaVisitados[0]=='Mehadia':  
+                listaYaVisitados.clear()
+                listaYaVisitados.extend(listAux)
             return
 
         else:
+            print(listAux)
             sucesor = estadoActual.obtener_adyacentes()  # expand
             sucesor = evaluacion(acumulado, sucesor, estadoActual)  # evaluate
             frontera = frontera + sucesor
@@ -161,6 +166,12 @@ def algoritmoAestrella(frontera):
             print(f"ListaAux:{listAux}")
 
             algoritmoAestrella(frontera)
+def intercambio():
+    listaYaVisitados.clear()
+    for visitados in listAux:
+        listaYaVisitados.append(visitados)
+ 
+
 
 
 def evaluacion(acumulado, sucesores, anterior):
