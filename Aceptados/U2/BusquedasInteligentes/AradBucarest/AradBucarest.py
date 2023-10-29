@@ -1,5 +1,5 @@
 import Nodo as Nodo
-from AradBucarestGrafica import MapaCiudades
+from AradBucarestVentana import MapaCiudades
 from diccionarioGrafico import puntos, lines
 import tkinter as tk
 from tkinter import ttk
@@ -137,13 +137,12 @@ def algoritmoAestrella(frontera):
         valor = frontera.pop(0)
         print(listAux)
         print(valor[1].getNombre())
-        if valor[1].getNombre() in listaYaVisitados:  # el proble es en como estas haciendo el pop, el orden
-            listAux.append(valor[1].getNombre())
+
+        #validacion para solucionar el ciclado de lugoj
+        if valor[1].getNombre() in listaYaVisitados:  
+            listAux.append(valor[1].getNombre())#lista auxiliar para una ruta de mehadia
             valor = frontera.pop(0)
 
-
-       # print(valor)
-       # print(valor[1].getNombre())
         listAux.append(valor[1].getNombre())
         estadoActual = valor[1]  # Como regresa una tupla, se obtiene el segundo elemento de la tupla que es el nodo
         listaYaVisitados.append(estadoActual.getNombre())
@@ -166,13 +165,6 @@ def algoritmoAestrella(frontera):
             print(f"ListaAux:{listAux}")
 
             algoritmoAestrella(frontera)
-def intercambio():
-    listaYaVisitados.clear()
-    for visitados in listAux:
-        listaYaVisitados.append(visitados)
- 
-
-
 
 def evaluacion(acumulado, sucesores, anterior):
     listaTemp = []
@@ -205,7 +197,6 @@ def seleccionar_ciudad():
         algoritmoAestrella(frontera)
 
 
-####################################################################
 # Crear una ventana emergente
 ventana = tk.Tk()
 ventana.title("Seleccionar Ciudad para Frontera")
@@ -217,23 +208,20 @@ ciudades = list(puntos.keys())
 ciudad_var = tk.StringVar()
 ciudad_var.set(ciudades[0])  # Valor predeterminado
 
-# Crear una lista desplegable
+# Creamos una lista desplegable
 etiqueta = tk.Label(ventana, text="Selecciona una ciudad:")
 etiqueta.pack(padx=10, pady=10)
 lista_desplegable = ttk.Combobox(ventana, textvariable=ciudad_var, values=ciudades)
 lista_desplegable.pack(padx=10, pady=10)
 
-# Botón para confirmar la selección
 boton_confirmar = tk.Button(ventana, text="Agregar a Frontera", command=seleccionar_ciudad)
 boton_confirmar.pack(padx=10, pady=10)
 
-# Iniciar el bucle principal de la interfaz gráfica
-ventana.mainloop()
-##################################################################################
+ventana.mainloop()#mostramos la grafica
+#############################FIN DE LA VENTANA EMERGENTE#####################################################
 
-''''''
 mapeado = MapaCiudades(puntos, lines)
-# mapa = MapaCiudades(puntos, lines)
+
 mapeado.dibujar_ciudades()
 mapeado.dibujar_lineas()
 
