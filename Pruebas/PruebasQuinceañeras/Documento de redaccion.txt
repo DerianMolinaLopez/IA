@@ -1,0 +1,19 @@
+DEFINICION DE LA ESTRUCTURA DE DATOS
+Opcion primordial:
+-diccionario de diccionarios
+Funciones euristicas
+tengo entendido que tendremos una heuristica y una evaluacion al buscar la ruta mas optima
+el detalle es que no se si basar todo el valor heuristico en los pesos de cada camino
+o poner unvalor euristico segun la ciudad que escojamos
+en resumen la PRIMERA ciudad que tomemos, tambien sera la ultima
+ya que cuando lleguemos a la ultima ciudad de la coleccion, se debe
+regresar a la primera ciuadd
+
+SELECCION DE CIUDADES:
+si debo basar mi evaluacion por medio de combinaciones, entonces
+ingreso una ciuad de forma manual, entonces las otras 11 CIUDADES
+se tomaran de forma aleatoria
+
+VALOR HEURISTICO:
+por cada combinacion de ciudades, al final peuede ir acompañado de otro campo
+qeu represente su valor de recorrido final
