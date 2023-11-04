@@ -43,7 +43,7 @@ CiudadesEuropeas = [
 realizamos un for anidado para sacar las distancias entre cada una de las ciudades
 uno anidado de momento ya que es una solucion lenta que consume solicitudes a la api
 '''
-
+api_key ="AIzaSyCDsf4qaVbLl_kT1FGxWRc6PWWx4jihlo4"
 
 for i in range(0, len(CiudadesEuropeas)):
     ciudad_origen = CiudadesEuropeas[i][0]
