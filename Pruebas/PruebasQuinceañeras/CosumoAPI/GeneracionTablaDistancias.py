@@ -1,4 +1,6 @@
 import requests
+import pandas as pd
+
 def calcular_distancia(ciudad_origen, ciudad_destino, api_key):
     endpoint = "https://maps.googleapis.com/maps/api/distancematrix/json"
     params = {
@@ -57,7 +59,10 @@ for i in range(0, len(CiudadesEuropeas)):
             calcular_distancia(ciudad_origen, ciudad_destino, api_key)
         )
 #chechamos las salidas
-print(CiudadesEuropeas)
+#print(CiudadesEuropeas)
+df = pd.DataFrame(CiudadesEuropeas, columns=["Ciudad", "Kiev, Ucrania", "Ankara, Turquía", "Atenas, Grecia", "Viena, Austria","Estocolmo, Suecia", "Bucarest, Rumanía", "Berlín, Alemania", "Zagreb, Croacia", "Ámsterdam, Países Bajos", "Bruselas, Bélgica", "Berna, Suiza", "Andorra la Vella, Andorra" ]) # Asigna nombres a las columnas y al índice
+df.to_csv("lista.csv", index=False) # Guarda el DataFrame en un archivo csv sin el índice
+
 
 
 
