@@ -1,33 +1,54 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import numpy as np
+
+'''
+   ['Kiev, Ucrania'],
+    ['Ankara, Turquía'],
+    ['Atenas, Grecia'],
+    ['Viena, Austria'],
+    ['Estocolmo, Suecia'],
+    ['Bucarest, Rumanía'],
+    ['Berlín, Alemania'],
+    ['Zagreb, Croacia'],
+    ['Ámsterdam, Países Bajos'],
+    ['Bruselas, Bélgica'],
+    ['Berna, Suiza'],
+    ['Andorra la Vella, Andorra']
+'''
+
 
 class Mapeado:
     def __init__(self):
         self.puntos = {
-            'kiev': (10, -6.8), 
-             'Ankara': (23, -30),
-              'Atenas': (7, -40),
-              'Viena': (-6, -14),
-              "Estocolmo": (-4, 16),
-              'Bucarest': (10, -20.5),
-              'Berlin': (-9, -4),
-               'Zagreb': (-5, -20),
-               'Amsterdam': (-19, -2),
-                # Ajusta las coordenadas según tu necesidad
+            'Kiev': (10, -6.8),
+            
+            'Atenas': (7, -40),
+            'Viena': (-6, -14),
+            'Bucarest': (10, -20.5),
+            'Berlin': (-9, -4),
+            'Zagreb': (-5, -20),
+            'Amsterdam': (-19, -2),
+            'Brucelas': (-21, -6),
+            'Andorra': (0, 0),
+              'Paris':(-23, -10),
+                'Madrid':(-37,-30),
+                 'Berna':(-17, -17)  # Ajusta las coordenadas según tu necesidad
             # Agrega más puntos si es necesario
         }
 
     def graficar_puntos(self):
         # Cargar la imagen de fondo
-        background_img = mpimg.imread('IA/Pruebas/PruebasQuinceañeras/GrafoMapeado/Mapa.jpg')  # Reemplaza 'ruta/a/tu/imagen.jpg' con la ruta real de tu imagen
+        background_img = mpimg.imread('IA/Pruebas/PruebasQuinceañeras/GrafoMapeado/Mapa.jpg')
 
         # Crear el gráfico
-        plt.figure(figsize=(10, 8))  # Tamaño del gráfico
-        plt.imshow(background_img, extent=[-50, 50, -50, 50])  # Ajusta los límites según el rango de tu imagen de fondo
-        
+        plt.figure(figsize=(10, 8))
+        plt.imshow(background_img, extent=[-50, 50, -50, 50])
+
         for punto, coordenadas in self.puntos.items():
             plt.plot(coordenadas[0], coordenadas[1], marker='o', markersize=8, color='blue')
             plt.text(coordenadas[0], coordenadas[1], punto, fontsize=12, ha='right')
+
 
         plt.xlabel('Eje X')
         plt.ylabel('Eje Y')
@@ -39,6 +60,7 @@ class Mapeado:
 # Uso de la clase y graficación de puntos con imagen de fondo
 objeto = Mapeado()
 objeto.graficar_puntos()
+
 
 '''
 CiudadesEuropeas = [
