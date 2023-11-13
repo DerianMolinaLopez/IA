@@ -8,9 +8,10 @@ puntos = {
             'Amsterdam': (-19, -2),
             'Brucelas': (-21, -6),
             'Andorra': (-28, -25.8),
-            'Paris':(-23, -10),
-            'Madrid':(-37,-30),
-            'Berna':(-17, -17)  
+            
+            'Sofia':(9, -28),
+            'Berna':(-17, -17),
+            'Lisboa':(-45,-30)
         }
 
 #orden de las lineas
@@ -33,13 +34,13 @@ berlin-kiev
 '''
 
 lineas = {
-    ('Madrid', 'Andorra'): { 'linestyle': '-'},
-    ('Andorra', 'Paris'): {'linestyle': '-'},
-    ('Paris', 'Brucelas'): {'linestyle': '-'},
+    
+    
+   
     ('Brucelas', 'Amsterdam'): { 'linestyle': '-'},
     ('Amsterdam', 'Berlin'): { 'linestyle': '-'},
     ('Brucelas', 'Berlin'): { 'linestyle': '-'},
-    ('Paris', 'Berna'): { 'linestyle': '-'},
+  
     ('Berna', 'Viena'): { 'linestyle': '-'},
     ('Viena', 'Zagreb'): { 'linestyle': '-'},
     ('Viena', 'Zagreb'): { 'linestyle': '-'},
@@ -47,5 +48,11 @@ lineas = {
     ('Atenas', 'Zagreb'): { 'linestyle': '-'},
     ('Bucarest', 'Kiev'): {'linestyle': '-'},
     ('Berlin', 'Kiev'): {'linestyle': '-'},
+    ('Lisboa','Andorra'): {'linestyle': '-'},
+    ('Andorra','Berna'): {'linestyle': '-'},
+    ('Brucelas','Berna'): {'linestyle': '-'},
+    ('Sofia','Bucarest'): {'linestyle': '-'},
+    ('Sofia','Zagreb'):{'linestyle': '-'},
+
 }
 
