@@ -25,10 +25,10 @@ print(f"Distancia: {distancia}")
 #realzo mi arreglo
 CiudadesEuropeas = [
     ['Kiev, Ucrania'],
-    ['Ankara, Turquía'],
+    ['Sofia, Bulgaria'],#sofia
     ['Atenas, Grecia'],
     ['Viena, Austria'],
-    ['Estocolmo, Suecia'],
+    ['Lisboa, Portugal'],#lisboa
     ['Bucarest, Rumanía'],
     ['Berlín, Alemania'],
     ['Zagreb, Croacia'],
@@ -45,7 +45,7 @@ CiudadesEuropeas = [
 realizamos un for anidado para sacar las distancias entre cada una de las ciudades
 uno anidado de momento ya que es una solucion lenta que consume solicitudes a la api
 '''
-api_key ="AIzaSyCDsf4qaVbLl_kT1FGxWRc6PWWx4jihlo4"
+api_key ="AIzaSyD6Sg3csJVzgI6RxNS_m1NsZxdblPzshWY"
 
 for i in range(0, len(CiudadesEuropeas)):
     ciudad_origen = CiudadesEuropeas[i][0]
@@ -60,7 +60,7 @@ for i in range(0, len(CiudadesEuropeas)):
         )
 #chechamos las salidas
 #print(CiudadesEuropeas)
-df = pd.DataFrame(CiudadesEuropeas, columns=["Ciudad", "Kiev, Ucrania", "Ankara, Turquía", "Atenas, Grecia", "Viena, Austria","Estocolmo, Suecia", "Bucarest, Rumanía", "Berlín, Alemania", "Zagreb, Croacia", "Ámsterdam, Países Bajos", "Bruselas, Bélgica", "Berna, Suiza", "Andorra la Vella, Andorra" ]) # Asigna nombres a las columnas y al índice
+df = pd.DataFrame(CiudadesEuropeas, columns=["Ciudad", "Kiev, Ucrania", "Sofia, Bulgaria", "Atenas, Grecia", "Viena, Austria","Lisboa, Portugal", "Bucarest, Rumanía", "Berlín, Alemania", "Zagreb, Croacia", "Ámsterdam, Países Bajos", "Bruselas, Bélgica", "Berna, Suiza", "Andorra la Vella, Andorra" ]) # Asigna nombres a las columnas y al índice
 df.to_csv("lista.csv", index=False) # Guarda el DataFrame en un archivo csv sin el índice
 
 

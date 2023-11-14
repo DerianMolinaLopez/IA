@@ -1,0 +1,74 @@
+import csv
+ListaCiudades = []
+
+class Ciudad:
+  def __init__(self, nombre, coordenadaX, coordenadaY):
+    self.nombre = nombre
+    self.coordenadaX = coordenadaX
+    self.coordenadaY = coordenadaY
+    self.listaVecinos = []
+    self.distanciaActual = 0
+    self.fx = 0
+    self.hx = 0
+    ListaCiudades.append(self)
+
+  def getCoordenadas(self):
+    return (self.coordenadaX,self.coordenadaY)
+
+  def setVecinos(self,vecinos):
+    import math
+    listaDistancias = []
+    cont = 0
+    for x in vecinos:
+        distancia = float(getDistanciaGX(self.nombre, x.nombre))
+        listaDistancias.append([x,distancia])
+    self.listaVecinos = listaDistancias
+
+
+
+Lisboa = Ciudad("Lisboa",    38.8614038638,    -9.057000464822)
+Paris = Ciudad("Paris",    48.986689644762,    2.3583086918209)
+Sevilla = Ciudad("Sevilla",    37.46310736694,   -6.0118092326767)
+Malaga = Ciudad("Malaga",    36.85939584319,     -4.459764120528)
+Oporto = Ciudad("Oporto",    41.16763897455,    -8.632035731734)
+Madrid = Ciudad("Madrid",    40.51200637904,    -3.6799433492986)
+Murcia = Ciudad("Murcia",    38.14309670086,    -1.1227251306846)
+Valencia = Ciudad("Valencia",    39.738175987953,    -0.32822584708508)
+Zaragoza = Ciudad("Zaragoza",    41.85007074636,    -0.9379578554289)
+Bilbao = Ciudad("Bilbao",    43.45347397332,    -2.951921153972)
+Leon = Ciudad("Leon",    42.76555077069,   -5.446279369924)
+Barcelona = Ciudad("Barcelona",    41.61566878520,    2.0552720054568)
+Toulouse = Ciudad("Toulouse", 43.85452108583,    1.5194469298779)
+Montpellier = Ciudad("Montpellier",  43.82786797666,    3.8844681200930)
+Nantes = Ciudad("Nantes",    47.38089130315,    -1.547689772424)
+Bruselas = Ciudad("Bruselas",    45.81955327733,    4.771351050734)
+Amsterdan = Ciudad("Amsterdan",    50.873168663826,    4.383339791175)
+Lyon = Ciudad("Lyon",   52.51078735705,   4.789827838577)
+Luxemburgo = Ciudad("Luxemburgo",    46.19696176169,    6.070527714185)
+Ginebra = Ciudad("Ginebra",   46.19696176169, 6.115717760281)
+Berna = Ciudad("Berna",    46.98706531012, 7.467227039338)
+Zurich = Ciudad("Zurich",   47.43013561294, 8.495987863915)
+
+
+Lisboa.setVecinos([Oporto,Sevilla])
+Paris.setVecinos([Bruselas,Nantes])
+Sevilla.setVecinos([Malaga,Lisboa])
+Malaga.setVecinos([Sevilla,Murcia])
+Oporto.setVecinos([Lisboa,Leon])
+Madrid.setVecinos([Murcia,Leon,Zaragoza])
+Murcia.setVecinos([Valencia,Madrid,Malaga])
+Valencia.setVecinos([Barcelona,Zaragoza,Murcia])
+Zaragoza.setVecinos([Barcelona,Bilbao,Valencia,Madrid])
+Bilbao.setVecinos([Zaragoza,Toulouse])
+Leon.setVecinos([Oporto,Madrid])
+Barcelona.setVecinos([Zaragoza,Toulouse,Valencia,Montpellier])
+Toulouse.setVecinos([Nantes,Montpellier,Barcelona,Bilbao])
+Montpellier.setVecinos([Toulouse,Barcelona,Lyon])
+Nantes.setVecinos([Toulouse,Paris])
+Lyon.setVecinos([Ginebra,Paris,Montpellier])
+Bruselas.setVecinos([Amsterdan,Luxemburgo])
+Amsterdan.setVecinos([Bruselas])
+Luxemburgo.setVecinos([Bruselas])
+Ginebra.setVecinos([Lyon,Berna])
+Berna.setVecinos([Ginebra,Zurich])
+Zurich.setVecinos([Berna,Luxemburgo])

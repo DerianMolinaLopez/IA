@@ -1,0 +1,32 @@
+from ClaseCiudad import Ciudad
+
+def A_Star(F,E_f,listD,listOptimos):
+    if(len(F) == 0):
+            return "None"
+    E_a = copy.deepcopy(F.pop(0))
+    C_A = E_a[0].distanciaActual
+    listOptimos.append(E_a[0])
+    if(Goaltest(E_a[0],E_f)):
+        aggDetalle(E_a[1])
+        return
+    else:
+        OS = Expand(E_a[0])
+        OS = Evalua(OS,C_A,E_f)
+        F = F+OS
+        F.sort(key = lambda x: x[0].fx, reverse = False)
+        A_Star(F,E_f,listD,listOptimos)
+
+def Expand(Estado):
+  return Estado.listaVecinos
+
+def Evalua(OS,C_A,E_f):
+  for i in range(len(OS)):
+    #OS[i][0].hx = EstablecerHeuristicas(OS[i][0], E_f)
+    OS[i][0].hx = getDistanciaHX(OS[i][0], E_f)
+    OS[i][1] = OS[i][1]+OS[i][0].distanciaActual
+    OS[i][0].fx = OS[i][1]+OS[i][0].hx
+    OS[i][0].distanciaActual = OS[i][1]
+  return copy.deepcopy(OS)
+
+def Goaltest(Estado,E_f):
+  return Estado.nombre == E_f.nombre

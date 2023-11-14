@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-from diccionariosLineasPuntos import puntos, lineas
+from DiccionarioLineasPuntos import puntos, lineas
 
 class Mapeado:
     def __init__(self):

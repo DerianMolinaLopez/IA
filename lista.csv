@@ -1,0 +1,13 @@
+Ciudad,"Kiev, Ucrania","Sofia, Bulgaria","Atenas, Grecia","Viena, Austria","Lisboa, Portugal","Bucarest, Rumanía","Berlín, Alemania","Zagreb, Croacia","Ámsterdam, Países Bajos","Bruselas, Bélgica","Berna, Suiza","Andorra la Vella, Andorra"
+"Kiev, Ucrania",1 m,"1,317 km","2,111 km","1,327 km","4,098 km",931 km,"1,364 km","1,481 km","1,983 km","2,082 km","2,201 km","3,098 km"
+"Sofia, Bulgaria","1,335 km",1 m,792 km,"1,005 km","3,530 km",402 km,"1,635 km",783 km,"2,163 km","2,113 km","1,755 km","2,366 km"
+"Atenas, Grecia","2,131 km",793 km,1 m,"1,705 km","4,230 km","1,198 km","2,335 km","1,483 km","2,863 km","2,814 km","2,455 km","3,066 km"
+"Viena, Austria","1,337 km","1,004 km","1,707 km",1 m,"2,860 km","1,068 km",682 km,376 km,"1,146 km","1,103 km",843 km,"1,818 km"
+"Lisboa, Portugal","4,103 km","3,529 km","4,232 km","2,860 km",1 m,"3,898 km","2,782 km","2,748 km","2,234 km","2,039 km","2,013 km","1,234 km"
+"Bucarest, Rumanía",932 km,384 km,"1,179 km","1,071 km","3,901 km",1 m,"1,702 km",989 km,"2,229 km","2,180 km","1,920 km","2,737 km"
+"Berlín, Alemania","1,365 km","1,634 km","2,337 km",681 km,"2,782 km","1,698 km",1 m,"1,047 km",656 km,755 km,956 km,"1,853 km"
+"Zagreb, Croacia","1,483 km",788 km,"1,491 km",373 km,"2,751 km",991 km,"1,045 km",1 m,"1,325 km","1,281 km",975 km,"1,586 km"
+"Ámsterdam, Países Bajos","1,984 km","2,162 km","2,865 km","1,145 km","2,233 km","2,226 km",657 km,"1,327 km",1 m,210 km,831 km,"1,357 km"
+"Bruselas, Bélgica","2,085 km","2,114 km","2,817 km","1,104 km","2,038 km","2,179 km",758 km,"1,286 km",210 km,1 m,663 km,"1,162 km"
+"Berna, Suiza","2,208 km","1,755 km","2,458 km",861 km,"2,010 km","1,935 km",957 km,975 km,833 km,657 km,1 m,931 km
+"Andorra la Vella, Andorra","3,142 km","2,400 km","3,103 km","1,825 km","1,234 km","2,769 km","1,891 km","1,620 km","1,357 km","1,162 km",968 km,1 m
