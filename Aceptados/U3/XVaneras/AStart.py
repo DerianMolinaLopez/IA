@@ -54,16 +54,16 @@ Atenas = Nodo('Atenas, Grecia')
 Viena = Nodo('Viena, Austria')
 Lisboa = Nodo('Lisboa, Portugal')
 Bucarest = Nodo('Bucarest, Romania')
-Berlín = Nodo('Berlín, Germany')
+Berlin = Nodo('Berlin, Germany')
 Zagreb = Nodo('Zagreb, Croatia')
-Ámsterdam = Nodo('Ámsterdam, Netherlands')
+Amsterdam = Nodo('Amsterdam, Netherlands')
 Bruselas = Nodo('Bruselas, Belgium')
-Berna = Nodo('Berna, Francia')
+Berna = Nodo('Berna, Switzerland')
 Andorra = Nodo('Andorra la Vella, Andorra')
 
 # Lista de Adyacentes
 #arad.agregar_adyacente(sibiu, 140) <--(ciudad,costo int)
-Kiev.agregar_adyacente(Berlín, calcular_distancia(Kiev.getNombre(),Berlín.getNombre()))
+Kiev.agregar_adyacente(Berlin, calcular_distancia(Kiev.getNombre(),Berlin.getNombre()))
 Kiev.agregar_adyacente(Bucarest, calcular_distancia(Kiev.getNombre(),Bucarest.getNombre()))
 
 Sofia.agregar_adyacente(Bucarest,calcular_distancia(Sofia.getNombre(),Bucarest.getNombre()))
@@ -80,20 +80,20 @@ Bucarest.agregar_adyacente(Kiev,calcular_distancia(Bucarest.getNombre(),Kiev.get
 Bucarest.agregar_adyacente(Sofia,calcular_distancia(Bucarest.getNombre(),Sofia.getNombre()))
 Bucarest.agregar_adyacente(Zagreb,calcular_distancia(Bucarest.getNombre(),Zagreb.getNombre()))
 
-Berlín.agregar_adyacente(Ámsterdam,calcular_distancia(Berlín.getNombre(),Ámsterdam.getNombre()))
-Berlín.agregar_adyacente(Bruselas,calcular_distancia(Berlín.getNombre(),Bruselas.getNombre()))
-Berlín.agregar_adyacente(Kiev,calcular_distancia(Berlín.getNombre(),Kiev.getNombre()))
+Berlin.agregar_adyacente(Amsterdam,calcular_distancia(Berlin.getNombre(),Amsterdam.getNombre()))
+Berlin.agregar_adyacente(Bruselas,calcular_distancia(Berlin.getNombre(),Bruselas.getNombre()))
+Berlin.agregar_adyacente(Kiev,calcular_distancia(Berlin.getNombre(),Kiev.getNombre()))
 
 Zagreb.agregar_adyacente(Bucarest,calcular_distancia(Zagreb.getNombre(),Bucarest.getNombre()))
 Zagreb.agregar_adyacente(Sofia,calcular_distancia(Zagreb.getNombre(),Sofia.getNombre()))
 Zagreb.agregar_adyacente(Atenas,calcular_distancia(Zagreb.getNombre(),Atenas.getNombre()))
 Zagreb.agregar_adyacente(Viena,calcular_distancia(Zagreb.getNombre(),Viena.getNombre()))
 
-Ámsterdam.agregar_adyacente(Berlín,calcular_distancia(Ámsterdam.getNombre(),Berlín.getNombre()))
-Ámsterdam.agregar_adyacente(Bruselas,calcular_distancia(Ámsterdam.getNombre(),Bruselas.getNombre()))
+Amsterdam.agregar_adyacente(Berlin,calcular_distancia(Amsterdam.getNombre(),Berlin.getNombre()))
+Amsterdam.agregar_adyacente(Bruselas,calcular_distancia(Amsterdam.getNombre(),Bruselas.getNombre()))
 
-Bruselas.agregar_adyacente(Ámsterdam,calcular_distancia(Bruselas.getNombre(),Ámsterdam.getNombre()))
-Bruselas.agregar_adyacente(Berlín,calcular_distancia(Bruselas.getNombre(),Berlín.getNombre()))
+Bruselas.agregar_adyacente(Amsterdam,calcular_distancia(Bruselas.getNombre(),Amsterdam.getNombre()))
+Bruselas.agregar_adyacente(Berlin,calcular_distancia(Bruselas.getNombre(),Berlin.getNombre()))
 Bruselas.agregar_adyacente(Berna,calcular_distancia(Bruselas.getNombre(),Berna.getNombre()))
 
 Berna.agregar_adyacente(Bruselas,calcular_distancia(Berna.getNombre(),Bruselas.getNombre()))
@@ -105,31 +105,36 @@ Andorra.agregar_adyacente(Berna,calcular_distancia(Andorra.getNombre(),Berna.get
 
 
 # Lista de Ciudades
-ciudades = [Kiev, Sofia, Atenas, Viena, Lisboa, Bucarest, Berlín, Zagreb, Ámsterdam, Bruselas, Berna, Andorra]
+ciudades = [Kiev, Sofia, Atenas, Viena, Lisboa, Bucarest, Berlin, Zagreb, Amsterdam, Bruselas, Berna, Andorra]
 
 # Algoritmo A*
-def algoritmo_a_estrella(inicio, objetivo):
-    frontera = [(0, inicio, 0)]  # (total, nodo, gn)
-    lista_ya_visitados = []
+def algoritmo_a_estrella(inicio, objetivo, frontera=None, lista_ya_visitados=None):
+    if frontera is None:
+        frontera = [(0, inicio, 0)]  # (total, nodo, gn)
+    if lista_ya_visitados is None:
+        lista_ya_visitados = []
 
-    while frontera:
-        valor = frontera.pop(0)
+    if not frontera:
+        return None
 
-        if valor[1].getNombre() == objetivo.getNombre():
-            return valor[0]
+    valor = frontera.pop(0)
 
-        if valor[1].getNombre() in lista_ya_visitados:
-            continue
+    if valor[1].getNombre() == objetivo.getNombre():
+        return valor[0]
 
-        estado_actual = valor[1]
-        lista_ya_visitados.append(estado_actual.getNombre())
+    if valor[1].getNombre() in lista_ya_visitados:
+        return algoritmo_a_estrella(inicio, objetivo, frontera, lista_ya_visitados)
 
-        sucesores = estado_actual.obtener_adyacentes()
-        sucesores = evaluacion(valor[2], sucesores, estado_actual)
-        frontera += sucesores
-        frontera.sort()
+    estado_actual = valor[1]
+    lista_ya_visitados.append(estado_actual.getNombre())
 
-    return None
+    sucesores = estado_actual.obtener_adyacentes()
+    sucesores = evaluacion(valor[2], sucesores, estado_actual)
+    frontera += sucesores
+    frontera.sort(key=lambda x: x[0])
+
+    return algoritmo_a_estrella(inicio, objetivo, frontera, lista_ya_visitados)
+
 
 def evaluacion(acumulado, sucesores, anterior):
     lista_temp = []
@@ -157,4 +162,3 @@ print(df)
 
 # Guardar DataFrame en un archivo CSV
 df.to_csv("tabla_costos.csv", index=False)
-

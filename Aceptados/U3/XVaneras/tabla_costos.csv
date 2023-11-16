@@ -1,0 +1,13 @@
+Ciudad,"Kiev, Ucrania","Sofia, Bulgaria","Atenas, Grecia","Viena, Austria","Lisboa, Portugal","Bucarest, Romania","Berlin, Germany","Zagreb, Croatia","Amsterdam, Netherlands","Bruselas, Belgium","Berna, Switzerland","Andorra la Vella, Andorra"
+"Kiev, Ucrania",0,1315,3411,2293,4947,931,1364,1920,2020,2119,2782,3713
+"Sofia, Bulgaria",1334,0,2274,1156,4164,402,2698,783,2866,2656,1999,2930
+"Atenas, Grecia",3406,2271,0,1856,4864,2474,4114,1483,3566,3356,2699,3630
+"Viena, Austria",2299,1164,1867,0,3008,1367,2258,376,1710,1500,843,1774
+"Lisboa, Portugal",4982,4227,4930,3063,0,4430,3617,3439,3069,2859,2202,1234
+"Bucarest, Romania",932,384,2480,1362,4370,0,2296,989,2952,2862,2205,3136
+"Berlin, Germany",1365,2680,4146,2279,3583,2296,0,2655,656,755,1418,2349
+"Zagreb, Croatia",1923,788,1491,373,3381,991,2631,0,2083,1873,1216,2147
+"Amsterdam, Netherlands",2022,2898,3601,1734,3038,2953,657,2110,0,210,873,1804
+"Bruselas, Belgium",2123,2688,3391,1524,2828,2891,758,1900,210,0,663,1594
+"Berna, Switzerland",2780,2025,2728,861,2165,2228,1415,1237,867,657,0,931
+"Andorra la Vella, Andorra",3748,2993,3696,1829,1234,3196,2383,2205,1835,1625,968,0

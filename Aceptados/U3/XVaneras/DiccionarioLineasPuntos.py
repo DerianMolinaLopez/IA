@@ -8,7 +8,6 @@ puntos = {
     'Amsterdam': (-19, -2),
     'Brucelas': (-21, -6),
     'Andorra': (-28, -25.8),
-
     'Sofia': (9, -28),
     'Berna': (-17, -17),
     'Lisboa': (-45, -30)
